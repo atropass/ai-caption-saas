@@ -50,7 +50,7 @@ async def root():
 @app.post("/generate")
 async def generate(
     req: GenerateRequest,
-    license_key: str = Header(..., convert_underscores=False),  # требует X-License-Key
+    license_key: str = Header(..., alias="X-License-Key"),
     db: AsyncSession = Depends(get_db),
 ):
     # 1) Проверяем лицензию
